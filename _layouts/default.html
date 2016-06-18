@@ -5,18 +5,24 @@
 
 <body>
 
-    {% include nav.html %}
+    {% include home.html %}
+	
+	{% include nav.html %}
+	
+	{% include about.html %}	
+	
+    {% include skill.html %}
+	
+	{% include resume.html %}
 
-    {{ content }}
+	{% include work.html %}	
 
+	{% include contact.html %}
+	
     {% include footer.html %}
 	
 	{% include googleanalytics.html %}
 	
-	{% if page.comments %}
-		{% include livefyre.html %}
-	{% endif %}
-
 </body>
 
 </html>

@@ -1,0 +1,35 @@
+<!-- About Section -->
+<section id="about" class="about-section section-padding">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp">About Me</h2>
+
+        <div class="row">
+
+			<div class="col-md-4">
+				<div class="biography">
+					<img src="{{ site.avatar }}" alt="">
+				</div>
+			</div> <!-- col-md-4 -->
+
+			<div class="col-md-8">
+				<div class="short-info wow fadeInUp">
+					<ul>
+						<li><strong>Name:</strong> {{ site.name }}</li>
+						<li><strong>Date of birth:</strong> {{ site.birthday }}</li>
+						<li><strong>Nationality:</strong> {{ site.country }}</li>
+						<li><strong>Email:</strong> {{ site.email }}</li>
+					</ul>
+					
+					<p>{{ site.about }}</p>
+				</div>
+
+				<div class="download-button">
+					<a class="btn btn-info btn-lg" href="#contact"><i class="fa fa-paper-plane"></i>Send me message</a>
+					<a class="btn btn-primary btn-lg" href="{{ site.cv }}"><i class="fa fa-download"></i>Download my cv</a>
+				</div>
+			</div>
+
+
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section><!-- End About Section -->

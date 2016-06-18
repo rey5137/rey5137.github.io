@@ -1,0 +1,67 @@
+<!-- Preloader -->
+<div id="tt-preloader">
+	<div id="pre-status">
+		<div class="preload-placeholder"></div>
+	</div>
+</div>
+	
+<!-- Home Section -->
+<section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+	<div class="intro">
+		<div class="intro-sub">Rey Pham</div>
+		<h1>Android <span>Developer</span></h1>
+		<p>Passionate in Android development and mobile technologies.</p>
+
+		<div class="social-icons">
+			<ul class="list-inline">
+				{% if site.facebook_username %}
+				<li>
+					<a href="https://www.facebook.com/{{ site.facebook_username }}">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+				{% endif %}
+				{% if site.twitter_username %}
+				<li>
+					<a href="https://twitter.com/{{ site.twitter_username }}">
+						<i class="fa fa-twitter"></i>
+					</a>
+				</li>
+				{% endif %}
+				{% if site.github_username %}
+                 <li>
+                    <a href="https://github.com/{{ site.github_username }}">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+                {% endif %}
+				{% if site.linkedin_username %}
+                <li>
+                    <a href="https://vn.linkedin.com/in/{{ site.linkedin_username }}">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </li>
+                {% endif %}
+				{% if site.medium_username %}
+                <li>
+                    <a href="https://medium.com/@{{ site.medium_username }}">
+                        <i class="fa fa-medium"></i>
+                    </a>
+                </li>
+                {% endif %}
+				{% if site.stackoverflow_username %}
+                <li>
+                    <a href="http://stackoverflow.com/users/{{ site.stackoverflow_username }}">
+                        <i class="fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                {% endif %}
+			</ul>
+		</div> <!-- /.social-icons -->
+	</div>
+
+	<div class="mouse-icon">
+		<div class="wheel"></div>
+	</div>
+</section>
+	

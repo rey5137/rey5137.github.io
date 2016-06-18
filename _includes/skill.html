@@ -1,0 +1,25 @@
+<!-- Skills Section -->
+<section id="skills" class="skills-section section-padding">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp">Skills</h2>
+        <div class="row">
+			{% assign size = site.skills | size %}
+			{% assign max = size | divided_by: 2 | minus: 1 %}
+			{% for i in (0..1) %}
+			<div class="col-md-6">
+				{% for j in (0..max) %}
+				{% assign index = size | divided_by: 2 | times: i | plus: j %}
+				{% assign skill = site.skills[index] %}
+				<div class="skill-progress">
+					<div class="skill-title"><h3>{{ skill.title }}</h3></div> 
+					<div class="progress">
+						<div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="{{ skill.percent }}" aria-valuemin="0" aria-valuemax="100" ><span>{{ skill.percent }}%</span>
+						</div>
+					</div>			  
+				</div>
+				{% endfor %}
+			</div>
+			{% endfor %}	
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- End Skills Section -->

@@ -1,0 +1,42 @@
+<!-- Resume Section -->
+<section id="resume" class="resume-section section-padding">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp">Experience</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="resume">
+                    <ul class="timeline">
+						{% for experience in site.experiences %}
+						{% assign mod = forloop.index0 | modulo:2 %}
+						{% if mod == 0 %}
+						<li>
+						{% else %}
+						<li class="timeline-inverted">
+						{% endif %}					
+						
+							<div class="posted-date">
+                                <span class="month">{{ experience.time }}</span>
+                            </div>
+							
+							<div class="timeline-panel wow fadeInUp">
+                                <div class="timeline-content">
+                                    <div class="timeline-heading">
+                                        <h3>{{ experience.role }}</h3>
+                                        <span>{{ experience.company }}</span>
+                                    </div>
+
+									{% if experience.info %}
+                                    <div class="timeline-body">
+                                        <p>{{ experience.info }}</p>
+                                    </div>
+									{% endif %}
+                                </div>
+                            </div>
+						</li>
+						{% endfor %}						
+                    </ul>
+                </div>
+            </div>
+        </div><!-- /row -->
+    </div><!-- /.container -->
+</section><!-- End Resume Section -->

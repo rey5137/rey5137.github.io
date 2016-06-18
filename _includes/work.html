@@ -1,0 +1,45 @@
+<!-- Works Section -->
+<section id="works" class="works-section section-padding">
+    <div class="container">
+		<h2 class="section-title wow fadeInUp">Works</h2>
+
+		<ul class="list-inline" id="filter">
+			{% for group in site.work_groups %}
+			<li>
+				{% if forloop.index0 == 0 %}
+					<a class="active" data-group="{{ group.tag }}">
+				{% else %}
+					<a data-group="{{ group.tag }}">
+				{% endif %}	
+				
+				{{ group.name }}
+				</a>
+			</li>
+			{% endfor %}
+        </ul>
+
+        <div class="row">
+			<div id="grid">
+            
+				{% for work in site.works %}
+				<div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='{{ work.group }}'>
+					<div class="portfolio-bg">
+						<div class="portfolio">
+							<div class="tt-overlay"></div>
+							<div class="links">
+								<a class="image-link" href="{{ work.full }}"><i class="fa fa-search-plus"></i></a>
+								<a href="{{ work.link }}"><i class="fa fa-link"></i></a>                          
+							</div><!-- /.links -->
+							<img src="{{ work.thumb }}" alt="image"> 
+							<div class="portfolio-info">
+								<h3>{{ work.title }}</h3>
+							</div><!-- /.portfolio-info -->
+						</div><!-- /.portfolio -->
+					</div><!-- /.portfolio-bg -->
+				</div><!-- /.portfolio-item -->
+				{% endfor %}
+			
+			</div><!-- /#grid -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- End Works Section -->

@@ -1,15 +1,68 @@
 # Site settings
 title: Rey Pham
-header-img: img/home-bg.jpg
 email: pea5137@gmail.com
 description: Rey Pham
 baseurl: ""
 url: "http://rey5137.com"
 timezone: Asia/Saigon
+name: Rey Pham
+birthday: 01 Mar 1989
+country: Vietnam
+avatar: img/avatar.jpg
+cv: file/cv_ReyPham.pdf
+about: I'm an Software Developer, currently living in Hanoi, Vietnam. I'm presently expanding my solid experience in Android app development. I focus on using my skills to build good user experience and create a strong interest in my employers. I'm passionate with Android and constantly experimenting with new technologies and techniques.
 twitter_username: rey5137
 github_username: rey5137
-google_plus_username: reypham
-linkedin_username: rey-pham/74/904/167
+linkedin_username: rey5137
+medium_username: rey5137
+stackoverflow_username: 3931635/rey-pham
+experiences:
+  - time: Feb 2014 — Present
+    role: Senior Android Developer
+    company: EPI Technologies, Hanoi
+    info: In charge of developing the newest Bao Moi Android version.
+  - time: Jul 2010 — Jan 2014
+    role: Java, Android developer
+    company: SunNet ITC Solution, Hanoi
+    info: Started as part-time job, developed some J2ME games. Switch to Android and in charge of developing Yoyo - an instant messenger app.
+work_groups:
+  - tag: all
+    name: All
+  - tag: app
+    name: App
+  - tag: game
+    name: Game
+  - tag: lib
+    name: Library
+works:
+  - title: Báo Mới
+    thumb: img/works/thumb_bao_moi.jpg
+    full: img/works/full_bao_moi.jpg
+    link: https://play.google.com/store/apps/details?id=com.epi
+    group: '["all", "app"]'
+  - title: Material Unit Converter ★
+    thumb: img/works/thumb_unit_converter.jpg
+    full: img/works/full_unit_converter.jpg 
+    link: https://play.google.com/store/apps/details?id=com.rey.unitconverter
+    group: '["all", "app"]'
+  - title: Material Library
+    thumb: img/works/thumb_material.jpg
+    full: img/works/full_material.jpg 
+    link: https://play.google.com/store/apps/details?id=com.rey.material.demo
+    group: '["all", "lib"]'	
+skills:
+  - title: OOP
+    percent: 90
+  - title: Android
+    percent: 80
+  - title: SQL
+    percent: 70
+  - title: REST API
+    percent: 80	
+  - title: JSON
+    percent: 80	
+  - title: Git
+    percent: 70	
 
 # Build settings
 markdown: kramdown
