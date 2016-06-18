@@ -70,3 +70,7 @@ highlighter: pygments
 permalink: /:categories/:title
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+# Plugins
+gems:
+  - jekyll-sitemap
