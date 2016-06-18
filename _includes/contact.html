@@ -7,7 +7,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="contact-form">
 					<strong>Send me a message</strong>
-					<form name="contact-form" id="contactForm" novalidate>
+					<form name="contact-form" id="contactForm" action="{{ "/mail/sendemail.php" | prepend: site.baseurl }}" method="POST">
 						<div class="form-group">
 							<label for="name">Name</label>
 							<input type="text" name="name" class="form-control" id="name" required="">
