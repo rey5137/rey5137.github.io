@@ -50,6 +50,11 @@ works:
     full: img/works/full_material.jpg 
     link: https://play.google.com/store/apps/details?id=com.rey.material.demo
     group: '["all", "lib"]'	
+  - title: 4096 Hexa
+    thumb: img/works/thumb_4096_hexa.jpg
+    full: img/works/full_4096_hexa.jpg 
+    link: https://play.google.com/store/apps/details?id=com.rey.hexa4096
+    group: '["all", "game"]'	
 skills:
   - title: OOP
     percent: 90
