@@ -40,6 +40,11 @@ works:
     full: img/works/full_bao_moi.jpg
     link: https://play.google.com/store/apps/details?id=com.epi
     group: '["all", "app"]'
+  - title: WallRey - Elegant HD wallpaper
+    thumb: img/works/thumb_wallrey.jpg
+    full: img/works/full_wallrey.jpg 
+    link: https://play.google.com/store/apps/details?id=com.rey.wallpaper
+    group: '["all", "app"]'
   - title: Material Unit Converter ★
     thumb: img/works/thumb_unit_converter.jpg
     full: img/works/full_unit_converter.jpg 
