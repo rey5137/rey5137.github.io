@@ -9,7 +9,7 @@ name: Rey Pham
 birthday: 01 Mar 1989
 country: Vietnam
 avatar: img/avatar.jpg
-cv: file/cv_ReyPham.pdf
+cv: file/cv_Rey_Pham.pdf
 about: I'm an Software Developer, currently living in Hanoi, Vietnam. I'm presently expanding my solid experience in Android app development. I focus on using my skills to build good user experience and create a strong interest in my employers. I'm passionate with Android and constantly experimenting with new technologies and techniques.
 twitter_username: rey5137
 github_username: rey5137
@@ -20,11 +20,11 @@ experiences:
   - time: Feb 2014 — Present
     role: Android Developer
     company: EPI Technologies, Hanoi
-    info: In charge of developing the newest Bao Moi Android version.
+    info: Completely rebuild Bao Moi Android app from scratch.
   - time: Jul 2010 — Jan 2014
     role: Java, Android developer
     company: SunNet ITC Solution, Hanoi
-    info: Started as part-time job, developed some J2ME games. Switch to Android and in charge of developing Yoyo - an instant messenger app.
+    info: Started as part-time job, developed some J2ME games. Switch to Android and developed Yoyo - an instant messenger app.
 work_groups:
   - tag: all
     name: All
