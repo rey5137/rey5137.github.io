@@ -18,7 +18,7 @@ medium_username: rey5137
 stackoverflow_username: 3931635/rey-pham
 experiences:
   - time: Mar 2017 — Present
-    role: Software Developer
+    role: Senior Software Developer
     company: Ascend Technologies, Hanoi
     info: Working on backend for a large-scale financial platform project.
   - time: Feb 2014 — Feb 2017
@@ -49,7 +49,7 @@ works:
     full: img/works/full_wallrey.jpg 
     link: https://play.google.com/store/apps/details?id=com.rey.wallpaper
     group: '["all", "app"]'
-  - title: BudRey - Personal Budget & Expense Manager
+  - title: BudRey - Budget & Expense Manager
     thumb: img/works/thumb_budrey.jpg
     full: img/works/full_budget.jpg 
     link: https://play.google.com/store/apps/details?id=com.rey.budget
