@@ -1,0 +1,58 @@
+{
+  "ads" : {
+    "0": [ {
+      "enabled" : true,
+      "id" : "ca-app-pub-7339357633959922/3356758498",
+      "layoutRow" : 10,
+      "type" : 1
+    }, {
+      "enabled" : true,
+      "id" : "ca-app-pub-7339357633959922/4833491690",
+      "layoutRow" : 15,
+      "type" : 1
+    }, {
+      "enabled" : true,
+      "id" : "ca-app-pub-7339357633959922/4235570095",
+      "layoutRow" : 20,
+      "type" : 1
+    }, {
+      "enabled" : true,
+      "id" : "ca-app-pub-7339357633959922/3306149690",
+      "layoutRow" : 25,
+      "type" : 1
+    } ]
+  },
+  "purchase" : {
+    "0": {
+      "proUnit" : "com.rey.wallpaper.pro"
+    }
+  },
+  "rating" : {
+    "0": {
+      "appStartCount" : 10,
+      "enabled" : true,
+      "lastCrashDays" : 7,
+      "layoutRow" : 5,
+      "maxDismissals" : 3,
+      "postponeDays" : 7,
+      "usedDays" : 3
+    }
+  },
+  "reward_ads" : {
+    "0": {
+      "id" : "ca-app-pub-7339357633959922/2090771361"
+    }
+  },
+  "update" : {
+    "0": {
+      "forceUpdate" : false,
+      "versionCode" : 210020006,
+      "versionName" : "2.0.6"
+    }
+  },
+  "usage" : {
+    "0": {
+      "maxDownloadPerDay" : 3
+    }
+  }
+}
