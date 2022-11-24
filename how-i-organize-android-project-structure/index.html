@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>How I organize Android project structure</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=819dc3dcc5" />
+
+    <meta name="description" content="Let me show you my current Android project structure" />
+    <link rel="canonical" href="http://localhost:2368/how-i-organize-android-project-structure/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://localhost:2368/how-i-organize-android-project-structure/amp/" />
+    
+    <meta property="og:site_name" content="Rey Pham" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How I organize Android project structure" />
+    <meta property="og:description" content="Let me show you my current Android project structure" />
+    <meta property="og:url" content="http://localhost:2368/how-i-organize-android-project-structure/" />
+    <meta property="og:image" content="https://i.imgur.com/hqxvO54.jpg" />
+    <meta property="article:published_time" content="2016-06-10T08:23:00.000Z" />
+    <meta property="article:modified_time" content="2020-03-12T08:32:09.000Z" />
+    <meta property="article:tag" content="Android" />
+    <meta property="article:tag" content="Java" />
+    <meta property="article:tag" content="Gradle" />
+    <meta property="article:tag" content="Import 2022-11-24 07:18" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How I organize Android project structure" />
+    <meta name="twitter:description" content="Let me show you my current Android project structure" />
+    <meta name="twitter:url" content="http://localhost:2368/how-i-organize-android-project-structure/" />
+    <meta name="twitter:image" content="https://i.imgur.com/hqxvO54.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Rey Pham" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Android, Java, Gradle, Import 2022-11-24 07:18" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="884" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rey Pham",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rey Pham",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/cd4c74c822ad731f7f283008b81d597d?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "http://localhost:2368/author/rey-2/",
+        "sameAs": []
+    },
+    "headline": "How I organize Android project structure",
+    "url": "http://localhost:2368/how-i-organize-android-project-structure/",
+    "datePublished": "2016-06-10T08:23:00.000Z",
+    "dateModified": "2020-03-12T08:32:09.000Z",
+    "keywords": "Android, Java, Gradle, Import 2022-11-24 07:18",
+    "description": "Let me show you my current Android project structure",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.23" />
+    <link rel="alternate" type="application/rss+xml" title="Rey Pham" href="http://localhost:2368/rss/" />
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.20/umd/portal.min.js" data-ghost="http://localhost:2368/" data-key="cacff2152241882fce973f1f10" data-api="http://localhost:2368/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="cacff2152241882fce973f1f10" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="http://localhost:2368/" crossorigin="anonymous"></script>
+    <script defer src="/public/cards.min.js?v=819dc3dcc5"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=819dc3dcc5">
+    <script defer src="/public/member-attribution.min.js?v=819dc3dcc5"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
+
+</head>
+<body class="post-template tag-android tag-java tag-gradle tag-import-2022-11-24-07-18 is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="http://localhost:2368">
+                        Rey Pham
+                </a>
+                <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://rey5137.com/">Home</a></li>
+    <li class="nav-works"><a href="https://rey5137.com/works">Works</a></li>
+    <li class="nav-about"><a href="https://rey5137.com/about">About</a></li>
+    <li class="nav-contact"><a href="https://rey5137.com/contact">Contact</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                            <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-android tag-java tag-gradle tag-import-2022-11-24-07-18 no-image ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/android/">Android</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">How I organize Android project structure</h1>
+
+            <p class="article-excerpt">Let me show you my current Android project structure</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/rey-2/" class="author-avatar">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/cd4c74c822ad731f7f283008b81d597d?s&#x3D;250&amp;d&#x3D;mm&amp;r&#x3D;x" alt="Rey Pham" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/rey-2/">Rey Pham</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2016-06-10">Jun 10, 2016</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>In my recent project <a href="https://play.google.com/store/apps/details?id=com.rey.unitconverter" rel="noopener nofollow"><strong><strong>Material Unit Converter</strong></strong></a> , I have a chance to try out various interesting things like RxJava, MVP, Clean Architecture, …</p><p>I will have a post about my experiences with all those trending in other day, but today I want to show you my Android project structure that helps me a lot in managing my codebase.</p><p><strong><strong>I. Sensitive data</strong></strong></p><p>There are always some sensitive data in your project. Whether it be keystore’s password or third-party API secret key, you want to keep it out of version control system. You can put it in <em><em>gradle.properties</em></em> file of your project like below:</p><pre><code>KEYSTORE_PASSWORD=&lt;your keystore's password&gt;
+KEYSTORE_FILE=&lt;your keystore file&gt;
+KEYSTORE_ALIAS=&lt;your keystore's alias&gt;</code></pre><p>Later you can use those properties in <em><em>build.gradle</em></em> file:</p><pre><code>signingConfigs {
+    release {
+        storeFile file(KEYSTORE_FILE)
+        storePassword KEYSTORE_PASSWORD
+        keyAlias KEYSTORE_ALIAS
+        keyPassword KEYSTORE_PASSWORD
+    }
+}</code></pre><p>Of course, you need to make sure not committing this file to VCS. But if you are lazy like me, you can put all those properties to <em><em>gradle.properties</em></em> file in <strong><strong>GRADLE_HOME</strong></strong> folder.</p><p><strong><strong>II.</strong> <strong>Dependencies</strong></strong></p><p>To manage all my project’s dependencies, I put it in a <em><em>library.gradle</em></em> file:</p><pre><code>ext.version = [
+    support          : "23.2.1",
+    rxjava           : "1.1.0",
+    rxandroid        : "1.1.0",
+       
+    // rest of libraries
+]
+
+def version = ext.version;
+
+ext.library = [
+    support_compat   : 
+"com.android.support:appcompat-v7:${version.support}",
+    support_design   : "com.android.support:design:${version.support}",
+    rxjava           :
+"io.reactivex:rxjava:${version.rxjava}",
+    rxandroid        :
+"io.reactivex:rxandroid:${version.rxandroid}",
+    // rest of libraries
+]</code></pre><p>The file is stored in <em><em>buildsystem</em></em> folder of the project.</p><figure class="kg-card kg-image-card"><img src="https://i.imgur.com/WBT9k7F.jpg" class="kg-image" alt loading="lazy"></figure><p>Then in <em><em>build.gradle</em></em> file:</p><pre><code>apply from: "$rootProject.projectDir/buildsystem/library.gradle"
+def library = ext.library;
+dependencies {
+    compile                 fileTree(dir: 'libs', include: ['*.jar'])
+    compile                 "${library.support_compat}"
+    compile                 "${library.support_design}"
+    compile                 "${library.rxjava}"
+    compile                 "${library.rxandroid}"
+    // rest of dependencies
+}</code></pre><p><strong><strong>III. Configuration</strong></strong></p><p>Like dependencies, I use<em><em> config.gradle</em></em> file to store all project configurations.</p><pre><code>ext.configuration = [
+        applicationId               : &lt;your app package name&gt;,
+        versionMajor                : 1,
+        versionMinor                : 0,
+        versionPatch                : 2,
+        versionClassifier           : "",
+        minimumSdkVersion           : 14,
+        compileSdkVersion           : 23,
+        targetSdkVersion            : 23,
+        buildToolsVersion           : "23.0.2"
+]
+
+def configuration = ext.configuration;
+
+ext.buildVersionCode = {
+    return configuration.minimumSdkVersion * 10000000 + configuration.versionMajor * 10000 + configuration.versionMinor * 100 + configuration.versionPatch
+}
+
+ext.buildVersionName = {
+    String versionName = ext.buildVersionNameWithoutClassifier();
+    if (configuration.versionClassifier != null &amp;&amp; !configuration.versionClassifier.isEmpty()) {
+        versionName = versionName + "-" + configuration.versionClassifier
+    }
+    return versionName;
+}</code></pre><p>You can see that I create <strong><strong>buildVersionCode</strong></strong> function to generate version code with first 2 digits for minimum SDK version, 1 digit for reverse, then follow with major, minor and patch number, each has 2 digits. For version name, I use format “ major.minor.patch-Classifier”.</p><p>Now we can use it in <em><em>build.gradle</em></em> file:</p><pre><code>apply from: "$rootProject.projectDir/buildsystem/config.gradle"
+def configuration = ext.configuration;
+
+android {
+    compileSdkVersion configuration.compileSdkVersion
+    buildToolsVersion configuration.buildToolsVersion
+
+    defaultConfig {
+        applicationId configuration.applicationId
+        minSdkVersion configuration.minimumSdkVersion
+        targetSdkVersion configuration.targetSdkVersion
+        versionCode buildVersionCode()
+        versionName buildVersionName()
+    }
+}</code></pre><p><strong><strong>IV. Source code packages</strong></strong></p><p>Here is my packages structure:</p><figure class="kg-card kg-image-card"><img src="https://i.imgur.com/FroUjyG.png" class="kg-image" alt loading="lazy"></figure><p>Each <strong><strong>data, domain, repository</strong></strong> package contains classes of a Clean Architecture’s layer.</p><p><strong><strong>common </strong></strong>package contains some utility classes. <strong><strong>dependency </strong></strong>package contains classes that are used to provide dependency injection (Dagger).</p><p>Each app’s feature will have it own child package in <strong><strong>feature </strong></strong>package. It should be the presentation layer of Clean Architecture.</p><p>And the last, <strong><strong>unitconverter </strong></strong>package contains classes that depend on Android framework like <strong><strong>Application</strong></strong>, <strong><strong>Activity</strong></strong>, <strong><strong>View</strong></strong>.</p><p><strong><strong>V. Test source folder</strong></strong></p><p>I separate test codes to multi-source folders like below:</p><pre><code>android {
+...
+    sourceSets {
+        // Common code for all tests
+        test.java.srcDir 'src/commonTests/java'
+        androidTest.java.srcDir 'src/commonTests/java'
+
+        // Unit tests
+        test.java.srcDir 'src/unitTests/java'
+
+        // Integration tests
+        test.java.srcDir 'src/integrationTests/java'
+
+        // Unit tests for debug build variant
+        testDebug.java.srcDir 'src/debugUnitTests/java'
+
+        // Unit tests for release build variant
+        testRelease.java.srcDir 'src/releaseUnitTests/java'
+
+        // Functional tests
+        androidTest.java.srcDir 'src/functionalTests/java'
+    }
+...
+}</code></pre><p>You can see we have<strong><strong> commonTests</strong></strong> source folder for any common class used in test. Each type of test is stored in different source folder, and each build variant also has it own test source folder.</p><p><strong><strong>VI. Conclusion</strong></strong></p><p>With this structure, my project has become more manageable. In future, I will update this post if I find out way to improve it.</p>
+    </section>
+
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/power_up_rest_service_with_batch_api/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Power up your REST service with Batch API
+                </h2>
+            </header>
+                <div class="post-card-excerpt">A different approach with GraphQL, that can quickly integrate into your REST service without the need to define any schema.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2020-07-10">Jul 10, 2020</time>
+                <span class="post-card-meta-length">4 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/jsonbatch-the-jouney-part-1/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    JsonBatch - Journey from zero to full-fledged Batch Engine - part 1
+                </h2>
+            </header>
+                <div class="post-card-excerpt">The idea & the first prototype</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2020-06-16">Jun 16, 2020</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/bad-chunk-header-mystery/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Bad chunk header mystery
+                </h2>
+            </header>
+                <div class="post-card-excerpt">A case of unwanted Bad chunk header</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2020-03-10">Mar 10, 2020</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="http://localhost:2368">Rey Pham</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=819dc3dcc5"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+
+</body>
+</html>
