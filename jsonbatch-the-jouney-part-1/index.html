@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JsonBatch - Journey from zero to full-fledged Batch Engine - part 1</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=819dc3dcc5" />
+    <link rel="stylesheet" href="/assets/built/screen.css?v=5d68560f01">
 
     <meta name="description" content="The idea &amp; the first prototype" />
     <link rel="canonical" href="http://localhost:2368/jsonbatch-the-jouney-part-1/" />
@@ -81,85 +78,23 @@
 
     <meta name="generator" content="Ghost 5.23" />
     <link rel="alternate" type="application/rss+xml" title="Rey Pham" href="http://localhost:2368/rss/" />
-    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.20/umd/portal.min.js" data-ghost="http://localhost:2368/" data-key="cacff2152241882fce973f1f10" data-api="http://localhost:2368/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
-.gh-post-upgrade-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    width: 100%;
-    color: #ffffff;
-    font-size: 16px;
-}
-
-.gh-post-upgrade-cta-content {
-    border-radius: 8px;
-    padding: 40px 4vw;
-}
-
-.gh-post-upgrade-cta h2 {
-    color: #ffffff;
-    font-size: 28px;
-    letter-spacing: -0.2px;
-    margin: 0;
-    padding: 0;
-}
-
-.gh-post-upgrade-cta p {
-    margin: 20px 0 0;
-    padding: 0;
-}
-
-.gh-post-upgrade-cta small {
-    font-size: 16px;
-    letter-spacing: -0.2px;
-}
-
-.gh-post-upgrade-cta a {
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: 500;
-    box-shadow: none;
-    text-decoration: underline;
-}
-
-.gh-post-upgrade-cta a:hover {
-    color: #ffffff;
-    opacity: 0.8;
-    box-shadow: none;
-    text-decoration: underline;
-}
-
-.gh-post-upgrade-cta a.gh-btn {
-    display: block;
-    background: #ffffff;
-    text-decoration: none;
-    margin: 28px 0 0;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.gh-post-upgrade-cta a.gh-btn:hover {
-    opacity: 0.92;
-}</style>
+    
     <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="cacff2152241882fce973f1f10" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="http://localhost:2368/" crossorigin="anonymous"></script>
-    <script defer src="/public/cards.min.js?v=819dc3dcc5"></script>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=819dc3dcc5">
-    <script defer src="/public/member-attribution.min.js?v=819dc3dcc5"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
-
+    <script defer src="/public/cards.min.js?v=5d68560f01"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=5d68560f01">
 </head>
-<body class="post-template tag-java tag-json tag-batch is-head-left-logo has-cover">
-<div class="viewport">
 
-    <header id="gh-head" class="gh-head outer">
-        <div class="gh-head-inner inner">
+<body class="post-template tag-java tag-json tag-batch is-head-stacked">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
             <div class="gh-head-brand">
-                <a class="gh-head-logo" href="http://localhost:2368">
-                        Rey Pham
-                </a>
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="http://localhost:2368">
+                            Rey Pham
+                    </a>
+                </div>
                 <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                 <button class="gh-burger"></button>
             </div>
@@ -172,62 +107,36 @@
     <li class="nav-contact"><a href="http://www.rey5137.com/contact/">Contact</a></li>
 </ul>
 
+                        <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
             </nav>
 
             <div class="gh-head-actions">
-                    <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-                            <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
             </div>
         </div>
     </header>
 
-    <div class="site-content">
-        
+    
 
+<main id="gh-main" class="gh-main">
+    <article class="gh-article post tag-java tag-json tag-batch no-image">
 
+        <header class="gh-article-header gh-canvas">
+            <span class="gh-article-meta">
+                By <a href="/author/rey-2/">Rey Pham</a>
+                    in
+                    <a class="gh-article-tag" href="http://localhost:2368/tag/java/">Java</a>
+                —
+                <time datetime="2020-06-16">Jun 16, 2020</time>
+            </span>
 
-<main id="site-main" class="site-main">
-<article class="article post tag-java tag-json tag-batch no-image ">
+            <h1 class="gh-article-title">JsonBatch - Journey from zero to full-fledged Batch Engine - part 1</h1>
 
-    <header class="article-header gh-canvas">
+                <p class="gh-article-excerpt">The idea &amp; the first prototype</p>
 
-        <div class="article-tag post-card-tags">
-                <span class="post-card-primary-tag">
-                    <a href="/tag/java/">Java</a>
-                </span>
-        </div>
+                    </header>
 
-        <h1 class="article-title">JsonBatch - Journey from zero to full-fledged Batch Engine - part 1</h1>
-
-            <p class="article-excerpt">The idea &amp; the first prototype</p>
-
-        <div class="article-byline">
-        <section class="article-byline-content">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-                    <a href="/author/rey-2/" class="author-avatar">
-                        <img class="author-profile-image" src="//www.gravatar.com/avatar/cd4c74c822ad731f7f283008b81d597d?s&#x3D;250&amp;d&#x3D;mm&amp;r&#x3D;x" alt="Rey Pham" />
-                    </a>
-                </li>
-            </ul>
-
-            <div class="article-byline-meta">
-                <h4 class="author-name"><a href="/author/rey-2/">Rey Pham</a></h4>
-                <div class="byline-meta-content">
-                    <time class="byline-meta-date" datetime="2020-06-16">Jun 16, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
-                </div>
-            </div>
-
-        </section>
-        </div>
-
-
-    </header>
-
-    <section class="gh-content gh-canvas">
-        <p>Recently, I have published <a href="https://github.com/rey5137/jsonbatch">JsonBatch</a> - an Engine to run batch requests with JSON based REST APIs. Although it is a small library, I found it quite satisfying to go through all processes, from designing to developing it. So today, I want to share my journey with you.</p><p><strong>I. The idea</strong></p><p>It all started with a requirement for our company product. To support one of our users migrate their own system to our system, we need to provide them an Adapter that will bridge the gap between their APIs to our APIs and maintain it for a while until they finish the migrating process. </p><p>It's a common requirement, but we want to reuse it somehow, so we don't have to repeat the same works with other users. At first, we thinking about providing user a way to config what endpoint that their API will route to, and how to map our response back to their response. Quite straight forward, but the reality is not so simple. Due to the different design of 2 systems, their API will mostly have to call multi-requests and then aggregate all responses.</p><p>That is when an idea came to me. What we need is a Batch Engine that can be configured easily &amp; dynamically.</p><p><strong>II. The first prototype</strong></p><p>So for a Batch Engine, it should take a list of requests, execute sequentially, and collect all responses.</p><figure class="kg-card kg-image-card"><img src="https://i.imgur.com/ez5dZuC.png" class="kg-image" alt loading="lazy"></figure><p>The execution logic is simple, but here comes the first challenge: How to build the request body?</p><p>It's easy if the client can supply all the request bodies, but what if a request body requires data from the response of another request? The Engine needs a way to know how &amp; where to extract data. Because all of the requests &amp; responses will be JSON, so if you want to locate a field, the first answer that came to me is using JsonPath. Fortunately, Java already has a good library <a href="https://github.com/json-path/JsonPath">Jayway's JsonPath</a> that supports all my needs. </p><p>So now we done with the <strong>How</strong> question, next is the <strong>Where</strong> question. The solution I came up with is building a grand JSON contains all the requests &amp; responses. Something like this:</p><pre><code class="language-json">{
+        <div class="gh-content gh-canvas">
+            <p>Recently, I have published <a href="https://github.com/rey5137/jsonbatch">JsonBatch</a> - an Engine to run batch requests with JSON based REST APIs. Although it is a small library, I found it quite satisfying to go through all processes, from designing to developing it. So today, I want to share my journey with you.</p><p><strong>I. The idea</strong></p><p>It all started with a requirement for our company product. To support one of our users migrate their own system to our system, we need to provide them an Adapter that will bridge the gap between their APIs to our APIs and maintain it for a while until they finish the migrating process. </p><p>It's a common requirement, but we want to reuse it somehow, so we don't have to repeat the same works with other users. At first, we thinking about providing user a way to config what endpoint that their API will route to, and how to map our response back to their response. Quite straight forward, but the reality is not so simple. Due to the different design of 2 systems, their API will mostly have to call multi-requests and then aggregate all responses.</p><p>That is when an idea came to me. What we need is a Batch Engine that can be configured easily &amp; dynamically.</p><p><strong>II. The first prototype</strong></p><p>So for a Batch Engine, it should take a list of requests, execute sequentially, and collect all responses.</p><figure class="kg-card kg-image-card"><img src="https://i.imgur.com/ez5dZuC.png" class="kg-image" alt loading="lazy"></figure><p>The execution logic is simple, but here comes the first challenge: How to build the request body?</p><p>It's easy if the client can supply all the request bodies, but what if a request body requires data from the response of another request? The Engine needs a way to know how &amp; where to extract data. Because all of the requests &amp; responses will be JSON, so if you want to locate a field, the first answer that came to me is using JsonPath. Fortunately, Java already has a good library <a href="https://github.com/json-path/JsonPath">Jayway's JsonPath</a> that supports all my needs. </p><p>So now we done with the <strong>How</strong> question, next is the <strong>Where</strong> question. The solution I came up with is building a grand JSON contains all the requests &amp; responses. Something like this:</p><pre><code class="language-json">{
  "original": {
    "http_method": "...",
    "url": "...",
@@ -272,139 +181,104 @@
   "field_2": 2,
   "field_3": [2, 3, 4]
 }</code></pre><p>You can see the structure of schema &amp; actual is quite similar.</p><p>Now, after all the pieces came together, it took me about 1 week to code this first prototype. In the next part, I will share how this prototype continues to evolve.</p>
-    </section>
+        </div>
 
 
-</article>
+        <footer class="gh-article-footer gh-canvas">
+            <nav class="gh-navigation">
+                <div class="gh-navigation-previous">
+                        <a class="gh-navigation-link" href="/bad-chunk-header-mystery/">
+                            <span class="gh-navigation-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+</svg> Previous issue</span>
+                            <h4 class="gh-navigation-title">Bad chunk header mystery</h4>
+                        </a>
+                </div>
+
+                <div class="gh-navigation-middle"></div>
+
+                <div class="gh-navigation-next">
+                        <a class="gh-navigation-link" href="/power_up_rest_service_with_batch_api/">
+                            <span class="gh-navigation-label">Next issue <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+</svg></span>
+                            <h4 class="gh-navigation-title">Power up your REST service with Batch API</h4>
+                        </a>
+                </div>
+            </nav>
+        </footer>
+
+    </article>
 </main>
 
-    <section class="footer-cta outer">
-        <div class="inner">
-            <h2 class="footer-cta-title">Sign up for more like this.</h2>
-            <a class="footer-cta-button" href="#/portal" data-portal>
-                <div class="footer-cta-input">Enter your email</div>
-                <span>Subscribe</span>
-            </a>
-        </div>
-    </section>
 
 
 
-            <aside class="read-more-wrap outer">
-                <div class="read-more inner">
-                        
-<article class="post-card post no-image">
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <div class="gh-copyright">
+                Rey Pham © 2022
+            </div>
 
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="/power_up_rest_service_with_batch_api/">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    Power up your REST service with Batch API
-                </h2>
-            </header>
-                <div class="post-card-excerpt">A different approach with GraphQL, that can quickly integrate into your REST service without the need to define any schema.</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2020-07-10">Jul 10, 2020</time>
-                <span class="post-card-meta-length">4 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                        
-<article class="post-card post no-image">
-
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="/bad-chunk-header-mystery/">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    Bad chunk header mystery
-                </h2>
-            </header>
-                <div class="post-card-excerpt">A case of unwanted Bad chunk header</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2020-03-10">Mar 10, 2020</time>
-                <span class="post-card-meta-length">2 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                        
-<article class="post-card post no-image">
-
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="/how-i-organize-android-project-structure/">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    How I organize Android project structure
-                </h2>
-            </header>
-                <div class="post-card-excerpt">Let me show you my current Android project structure</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2016-06-10">Jun 10, 2016</time>
-                <span class="post-card-meta-length">3 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                </div>
-            </aside>
-
-
-
-    </div>
-
-    <footer class="site-footer outer">
-        <div class="inner">
-            <section class="copyright"><a href="http://localhost:2368">Rey Pham</a> &copy; 2022</section>
-            <nav class="site-footer-nav">
+            <nav class="gh-foot-menu">
                 
             </nav>
-            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+
+            <div class="gh-powered-by">
+                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+            </div>
         </div>
     </footer>
 
 </div>
 
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
 
-<script
-    src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-    crossorigin="anonymous">
-</script>
-<script src="/assets/built/casper.js?v=819dc3dcc5"></script>
-<script>
-$(document).ready(function () {
-    // Mobile Menu Trigger
-    $('.gh-burger').click(function () {
-        $('body').toggleClass('gh-head-open');
-    });
-    // FitVids - Makes video embeds responsive
-    $(".gh-content").fitVids();
-});
-</script>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/main.min.js?v=5d68560f01"></script>
 
 
 
 </body>
+
 </html>
